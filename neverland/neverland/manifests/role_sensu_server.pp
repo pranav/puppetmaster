@@ -31,10 +31,16 @@ class neverland::role_sensu_server {
     server            => true,
     dashboard         => true,
     api               => true,
+    subscriptions     => ['production'],
+  }
+
+  sensu::handler { 'default':
+    command => 'mail -s \'\[sensu\] Neverland whoopsie\' sensu@hybridfire.net'
   }
 
   Rabbitmq_user_permissions['sensu@/sensu'] ->
   Package['redis-server'] ->
   Service['redis-server'] ->
   Class['sensu']
+
 }

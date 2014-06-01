@@ -5,8 +5,25 @@ FORGE
     nanliu/staging (0.4.0)
     puppetlabs/apt (1.4.2)
       puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/firewall (1.1.1)
     puppetlabs/gcc (0.1.0)
     puppetlabs/stdlib (4.2.1)
+
+GIT
+  remote: git://github.com/echocat/puppet-graphite.git
+  ref: master
+  sha: 283af774750c99b46ad6234164cbea53faad6568
+  specs:
+    graphite (5.3.2)
+      puppetlabs/stdlib (>= 3.2.0)
+
+GIT
+  remote: git://github.com/puppetlabs/puppetlabs-mysql.git
+  ref: master
+  sha: 4375d76c094e01ac87c4b22ec024cf7fc6a80fa4
+  specs:
+    mysql (2.2.3)
+      puppetlabs/stdlib (>= 3.2.0)
 
 GIT
   remote: git://github.com/puppetlabs/puppetlabs-rabbitmq.git
@@ -17,6 +34,22 @@ GIT
       nanliu/staging (>= 0.3.1)
       puppetlabs/apt (>= 1.0.0)
       puppetlabs/stdlib (>= 2.0.0)
+
+GIT
+  remote: git://github.com/puppetlabs/puppetlabs-vcsrepo
+  ref: master
+  sha: 8f71d47786e7d7465d5597705c6dab4331371ad6
+  specs:
+    vcsrepo (0.2.0)
+
+GIT
+  remote: git://github.com/saz/puppet-memcached.git
+  ref: master
+  sha: 2f5cf83d4b0967693814a1d636d3d64d41a3e808
+  specs:
+    memcached (2.4.0)
+      puppetlabs/firewall (>= 0.1.0)
+      puppetlabs/stdlib (>= 3.2.0)
 
 GIT
   remote: git://github.com/sensu/sensu-puppet.git
@@ -37,7 +70,11 @@ GIT
       puppetlabs/gcc (>= 0)
 
 DEPENDENCIES
+  graphite (>= 0)
+  memcached (>= 0)
+  mysql (>= 0)
   rabbitmq (>= 0)
   redis (>= 0)
   sensu (>= 0)
+  vcsrepo (>= 0)
 

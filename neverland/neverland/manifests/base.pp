@@ -1,12 +1,16 @@
 class neverland::base {
-  $sensu_host = 'sensu.neverland.io'
-  $sensu_rabbitmq_password = 'supersecret'
 
-  package { 'ruby-json':
+  case $::osfamily {
+    'redhat': { $ruby_devel = 'ruby-devel' }
+    'debian': { $ruby_devel = 'ruby-dev' }
+    default: { fail('I don\'t even know what OS you\'re running.') }
+  }
+
+  package { $ruby_devel:
     ensure => present,
   }
 
-  package { 'ruby-dev':
+  package { 'git':
     ensure => present,
   }
 
@@ -14,13 +18,6 @@ class neverland::base {
     ensure => present,
   }
 
-  package { 'sensu-plugin':
-    ensure    => present,
-    provider => gem
-  }
+  include neverland::sensu_client
 
-  class { 'sensu':
-    rabbitmq_host     => $sensu_host,
-    rabbitmq_password => $sensu_rabbitmq_password,
-  }
 }

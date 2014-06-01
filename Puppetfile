@@ -20,3 +20,15 @@ mod 'redis',
 
 mod 'rabbitmq',
   :git => 'git://github.com/puppetlabs/puppetlabs-rabbitmq.git'
+
+mod 'vcsrepo',
+  :git => 'git://github.com/puppetlabs/puppetlabs-vcsrepo'
+
+mod 'graphite',
+  :git => 'git://github.com/echocat/puppet-graphite.git'
+
+mod 'mysql',
+  :git => 'git://github.com/puppetlabs/puppetlabs-mysql.git'
+
+mod 'memcached',
+  :git => 'git://github.com/saz/puppet-memcached.git'
